@@ -8,14 +8,25 @@
 import SwiftUI
 
 struct Main: View {
+    @State private var selectTab: TabType = .meal
+    
+    init() {
+        UITabBar.appearance().isHidden = true
+    }
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        ZStack {
+            Spacer()
+            switch selectTab {
+            case .meal:
+                MealView()
+            case .timeTable:
+                TimeTableView()
+            case .seat:
+                SeatView()
+            }
+            SkoolTabBar(selectedTab: $selectTab)
         }
-        .padding()
     }
 }
 
