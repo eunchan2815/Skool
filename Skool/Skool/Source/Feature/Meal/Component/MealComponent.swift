@@ -25,17 +25,18 @@ struct MealComponent: View {
                             .background(Color.main)
                             .cornerRadius(15)
                         Spacer()
+                        Text(meal.calorieInfo)
+                            .font(.regular(14))
+                            .padding()
                     }
                     .padding(.leading, 15)
-                    .padding(.bottom, 4)
                     HStack {
                         VStack(alignment: .leading) {
                             Text(meal.formattedDescription)
                                 .font(.regular(16))
+                            Spacer()
                         }
-                        Spacer()
                     }
-                    .padding(.leading, 40)
                 }
             }
     }
