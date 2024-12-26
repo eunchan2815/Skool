@@ -12,6 +12,7 @@ enum SkoolIconography: String {
     case TimeTable = "TimeTable"
     case Seat = "Seat"
     case meal = "Meal"
+    case menu = "Menu"
 }
 
 extension Image {

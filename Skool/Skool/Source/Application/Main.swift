@@ -15,18 +15,25 @@ struct Main: View {
     }
     
     var body: some View {
-        ZStack {
+        ZStack(alignment: .bottom) {
             Spacer()
-            switch selectTab {
-            case .meal:
-                MealView()
-            case .timeTable:
-                TimeTableView()
-            case .seat:
-                SeatView()
+            VStack(spacing: 0) {
+                Spacer()
+                switch selectTab {
+                case .meal:
+                    MealView()
+                case .timeTable:
+                    TimeTableView()
+                case .seat:
+                    SeatView()
+                }
+                Spacer()
             }
+            .padding(.bottom, 80)
+            
             SkoolTabBar(selectedTab: $selectTab)
         }
+        .ignoresSafeArea(edges: .bottom)
     }
 }
 

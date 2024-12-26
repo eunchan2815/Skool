@@ -7,4 +7,4 @@
 
 import Foundation
 
-let apiKey = Bundle.main.object(forInfoDictionaryKey: "APIKey") as? String
+let apiKey = Bundle.main.object(forInfoDictionaryKey: "neisKey") as! String
