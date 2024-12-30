@@ -5,6 +5,7 @@ class MealViewModel: ObservableObject {
     @Published var breakfastMeals: [Meal] = [] // MARK: 조식
     @Published var lunchMeals: [Meal] = [] // MARK: 중식
     @Published var dinnerMeals: [Meal] = [] // MARK: 석식
+    @Published var notFound = false
     
     func getMeal(date: String) {
         let parameters: [String: String] = [
@@ -18,11 +19,15 @@ class MealViewModel: ObservableObject {
         SkoolNetworkRunner.shared.request(method: .get, parameters: parameters, response: MealResponse.self) { result in
             switch result {
             case .success(let data):
-                DispatchQueue.main.async {
-                    if let mealInfo = data.mealServiceDietInfo?[safe: 1]?.row {
-                        self.meals = mealInfo
-                        self.filterMeals()
+                if ((data.mealServiceDietInfo?.isEmpty) != nil) {
+                    DispatchQueue.main.async {
+                        if let mealInfo = data.mealServiceDietInfo?[safe: 1]?.row {
+                            self.meals = mealInfo
+                            self.filterMeals()
+                        }
                     }
+                } else {
+                    self.notFound = true
                 }
             case .failure(let error):
                 print("에러 발생: \(error.localizedDescription)")

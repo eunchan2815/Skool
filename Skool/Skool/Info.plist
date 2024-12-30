@@ -6,5 +6,22 @@
 	<array/>
 	<key>neisKey</key>
 	<string>8ceb4ff12ab34574bb2d9bcb5bf23758</string>
+	<key>UIAppFonts</key>
+<array>
+    <string>NotoSansKR-Bold.ttf</string>
+	<string>NotoSansKR-ExtraBold.ttf</string>
+	<string>NotoSansKR-Light.ttf</string>
+	<string>NotoSansKR-Medium.ttf</string>
+	<string>NotoSansKR-Regular.ttf</string>
+	<string>NotoSansKR-SemiBold.ttf</string>
+	<string>Pretendard-Bold.ttf</string>
+	<string>Pretendard-ExtraBold.ttf</string>
+	<string>Pretendard-Light.ttf</string>
+	<string>Pretendard-Medium.ttf</string>
+	<string>Pretendard-Regular.ttf</string>
+	<string>Pretendard-SemiBold.ttf</string>
+
+</array>
+
 </dict>
 </plist>

@@ -1,10 +1,3 @@
-//
-//  MealComponent.swift
-//  Skool
-//
-//  Created by dgsw30 on 12/24/24.
-//
-
 import SwiftUI
 
 struct MealComponent: View {
@@ -12,32 +5,31 @@ struct MealComponent: View {
     let meal: Meal
     
     var body: some View {
-        RoundedRectangle(cornerRadius: 14)
-            .fill(.sub)
-            .frame(width: 345, height: 200)
-            .overlay {
-                VStack {
-                    HStack {
-                        Text(mealType)
-                            .font(.bold(18))
-                            .foregroundStyle(.white)
-                            .frame(width: 50, height: 30)
-                            .background(Color.main)
-                            .cornerRadius(15)
-                        Spacer()
-                        Text(meal.calorieInfo)
-                            .font(.regular(14))
-                            .padding()
-                    }
-                    .padding(.leading, 15)
-                    HStack {
-                        VStack(alignment: .leading) {
-                            Text(meal.formattedDescription)
-                                .font(.regular(16))
-                            Spacer()
-                        }
-                    }
-                }
+        VStack(alignment: .leading, spacing: 8) {
+            HStack {
+                Text(mealType)
+                    .font(.krMedium(18))
+                    .foregroundStyle(.white)
+                    .frame(width: 50, height: 30)
+                    .background(Color.main)
+                    .cornerRadius(15)
+                    .padding(.top, 10)
+                Spacer()
+                Text(meal.calorieInfo)
+                    .font(.regular(14))
             }
+            .padding(.horizontal, 15)
+            
+            Text(meal.cleanedText)
+                .font(.krRegular(15))
+                .padding(.horizontal, 24)
+                .padding(.bottom, 15)
+        }
+        .frame(maxWidth: .infinity)
+        .background(
+            RoundedRectangle(cornerRadius: 14)
+                .fill(.sub2)
+        )
+        .padding(.horizontal)
     }
 }

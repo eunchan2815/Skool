@@ -50,6 +50,12 @@ struct Meal: Codable {
         return mealDescription.replacingOccurrences(of: "<br/>", with: "\n")
     }
     
+    var cleanedText : String {
+        let pattern = "\\([^)]*\\)"
+        return formattedDescription.replacingOccurrences(of: pattern, with: "", options: .regularExpression)
+    }
+    
+    
     enum CodingKeys: String, CodingKey {
         case mealToDate = "MLSV_TO_YMD"
         case mealFromDate = "MLSV_FROM_YMD"

@@ -14,6 +14,9 @@ enum PretendardWeight: String {
     case light = "Pretendard-Light"
     case krBold = "NotoSansKR-Bold"
     case krSemiBold = "NotoSansKR-SemiBold"
+    case krLight = "NotoSansKR-Light"
+    case krMedium = "NotoSansKR-Medium"
+    case krRegular = "NotoSansKR-Regular"
 }
 
 extension Font {
@@ -47,5 +50,14 @@ extension Font {
     
     static func krSemiBold(_ size: CGFloat) -> Self {
         Font.pretendard(weight: .krSemiBold, size: size)
+    }
+    static func krLight(_ size: CGFloat) -> Self {
+        Font.pretendard(weight: .krLight, size: size)
+    }
+    static func krMedium(_ size: CGFloat) -> Self {
+        Font.pretendard(weight: .krMedium, size: size)
+    }
+    static func krRegular(_ size: CGFloat) -> Self {
+        Font.pretendard(weight: .krRegular, size: size)
     }
 }

@@ -13,16 +13,12 @@ enum SkoolIconography: String {
     case Seat = "Seat"
     case meal = "Meal"
     case menu = "Menu"
+    case seatTable = "SeatTable"
+    case mealNotFound = "NotFound"
 }
 
 extension Image {
     init(icon: SkoolIconography) {
         self = Image(icon.rawValue)
-    }
-}
-
-struct SkoolTests {
-    var body: some View {
-        Image(icon: .Seat)
     }
 }

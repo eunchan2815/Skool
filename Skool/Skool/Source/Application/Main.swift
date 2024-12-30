@@ -25,7 +25,7 @@ struct Main: View {
                 case .timeTable:
                     TimeTableView()
                 case .seat:
-                    SeatView()
+                    InputSeat()
                 }
                 Spacer()
             }
