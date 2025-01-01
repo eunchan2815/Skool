@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		6515B8622D1A3E14009131EB /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 6515B8612D1A3E14009131EB /* Alamofire */; };
-		65C7E95F2D22BE9C009FCC70 /* FlowKit in Frameworks */ = {isa = PBXBuildFile; productRef = 65C7E95E2D22BE9C009FCC70 /* FlowKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,7 +41,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6515B8622D1A3E14009131EB /* Alamofire in Frameworks */,
-				65C7E95F2D22BE9C009FCC70 /* FlowKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,7 +84,6 @@
 			name = Skool;
 			packageProductDependencies = (
 				6515B8612D1A3E14009131EB /* Alamofire */,
-				65C7E95E2D22BE9C009FCC70 /* FlowKit */,
 			);
 			productName = Skool;
 			productReference = 6538FD252CF0B49800D630C5 /* Skool.app */;
@@ -118,7 +115,6 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				6515B8602D1A3E14009131EB /* XCRemoteSwiftPackageReference "alamofire" */,
-				65C7E95D2D22BE9C009FCC70 /* XCRemoteSwiftPackageReference "FlowKit" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 6538FD262CF0B49800D630C5 /* Products */;
@@ -366,14 +362,6 @@
 				minimumVersion = 5.10.2;
 			};
 		};
-		65C7E95D2D22BE9C009FCC70 /* XCRemoteSwiftPackageReference "FlowKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Mercen-Lee/FlowKit?tab=readme-ov-file";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -381,11 +369,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6515B8602D1A3E14009131EB /* XCRemoteSwiftPackageReference "alamofire" */;
 			productName = Alamofire;
-		};
-		65C7E95E2D22BE9C009FCC70 /* FlowKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 65C7E95D2D22BE9C009FCC70 /* XCRemoteSwiftPackageReference "FlowKit" */;
-			productName = FlowKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

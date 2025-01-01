@@ -12,7 +12,7 @@ struct VoidResponse: Decodable {}
 
 struct SkoolNetworkRunner {
     static let shared = SkoolNetworkRunner()
-    let baseUrl = "https://open.neis.go.kr/hub/mealServiceDietInfo/"
+    let baseUrl = "https://open.neis.go.kr/hub"
     
     private let session: Session = {
         let configuration = URLSessionConfiguration.af.default
@@ -22,6 +22,7 @@ struct SkoolNetworkRunner {
     }()
     
     func request<Parameters: Encodable, Response: Decodable>(
+        url: String,
         method: HTTPMethod,
         parameters: Parameters?,
         response: Response.Type = VoidResponse.self,
@@ -29,7 +30,7 @@ struct SkoolNetworkRunner {
     ) {
         
         session.request (
-            baseUrl,
+            baseUrl + url,
             method: method,
             parameters: parameters,
             encoder: URLEncodedFormParameterEncoder.default
