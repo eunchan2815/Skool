@@ -8,21 +8,23 @@
 import Foundation
 
 class TimeTableViewModel: ObservableObject {
-    @Published var timeTable: [HisTimetable] = []
+    @Published var timeTable: [TimeTableEntry] = []
     
     
     func fetchTimeTable(date: String) {
         let parameters: [String: String] = [
+            "KEY": "8ceb4ff12ab34574bb2d9bcb5bf23758",
             "Type": "json",
             "ATPT_OFCDC_SC_CODE": "D10",
             "SD_SCHUL_CODE": "7240454",
-            "KEY": apiKey,
-            "MLSV_YMD": date
+            "ALL_TI_YMD": "20241209",
+            "GRADE": "1",
+            "CLASS_NM": "2"
         ]
-        SkoolNetworkRunner.shared.request(url: "/hisTimetable", method: .get, parameters: parameters, response: TimeTableModel.self) { result in
+        SkoolNetworkRunner.shared.TimeTableRequest(url: "/hisTimetable", method: .get, parameters: parameters, response: TimeTableModel.self) { result in
             switch result {
             case .success(let data):
-                self.timeTable = data.hisTimetable
+                self.timeTable = data.hisTimetable.compactMap { $0.row }.flatMap { $0 }
             case .failure(let error):
                 print(error.localizedDescription)
             }

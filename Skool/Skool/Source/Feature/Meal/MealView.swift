@@ -84,7 +84,7 @@ struct MealView: View {
             .SkoolView()
         }
         .onAppear {
-            mealVM.getMeal(date: currentDate)
+            mealVM.getMeal(date: "20241209")
         }
     }
 }

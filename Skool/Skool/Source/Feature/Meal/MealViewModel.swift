@@ -16,7 +16,7 @@ class MealViewModel: ObservableObject {
             "MLSV_YMD": date
         ]
         
-        SkoolNetworkRunner.shared.request(url: "/mealServiceDietInfo/", method: .get, parameters: parameters, response: MealResponse.self) { result in
+        SkoolNetworkRunner.shared.mealRequest(url: "/mealServiceDietInfo/", method: .get, parameters: parameters, response: MealResponse.self) { result in
             switch result {
             case .success(let data):
                 if ((data.mealServiceDietInfo?.isEmpty) != nil) {

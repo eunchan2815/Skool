@@ -10,10 +10,17 @@ import SwiftUI
 struct TimeTableView: View {
     @StateObject private var timeTableVM = TimeTableViewModel()
     var body: some View {
-        Text("TimeTable")
+        ScrollView {
+            VStack {
+                ForEach(timeTableVM.timeTable, id: \.self) { timeTable in
+                    TimeTableComponent(timetable: timeTable)
+                }
+            }
+        }
             .onAppear {
                 timeTableVM.fetchTimeTable(date: "20241209")
             }
+            .SkoolView()
     }
 }
 
