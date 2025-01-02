@@ -12,11 +12,11 @@ class MealViewModel: ObservableObject {
             "Type": "json",
             "ATPT_OFCDC_SC_CODE": "D10",
             "SD_SCHUL_CODE": "7240454",
-            "KEY": "\(String(describing: apiKey))",
+            "KEY": apiKey,
             "MLSV_YMD": date
         ]
         
-        SkoolNetworkRunner.shared.request(method: .get, parameters: parameters, response: MealResponse.self) { result in
+        SkoolNetworkRunner.shared.mealRequest(url: "/mealServiceDietInfo/", method: .get, parameters: parameters, response: MealResponse.self) { result in
             switch result {
             case .success(let data):
                 if ((data.mealServiceDietInfo?.isEmpty) != nil) {

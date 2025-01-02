@@ -33,44 +33,42 @@ struct Meal: Codable {
     let mealToDate: String
     let mealFromDate: String
     let mealDate: String
-    let regionCode: String
-    let regionName: String
     let schoolCode: String
     let schoolName: String
-    let mealTypeCode: String
     let mealTypeName: String
-    let mealDescription: String
-    let mealAmount: Double
-    let ingredientInfo: String
-    let calorieInfo: String
-    let nutritionInfo: String
-    let loadDate: String
+    let mealDescription: String?
+    let ingredientInfo: String?
+    let calorieInfo: String?
     
-    var formattedDescription: String {
-        return mealDescription.replacingOccurrences(of: "<br/>", with: "\n")
+    var cleanDescription: String {
+        let formatted = mealDescription?.replacingOccurrences(of: "<br/>", with: "\n") ?? ""
+        return formatted.replacingOccurrences(of: "*", with: "")
     }
     
     var cleanedText : String {
         let pattern = "\\([^)]*\\)"
-        return formattedDescription.replacingOccurrences(of: pattern, with: "", options: .regularExpression)
+        return cleanDescription.replacingOccurrences(of: pattern, with: "", options: .regularExpression)
     }
     
+    var cleanCalorieInfo: String {
+        if let calorieString = calorieInfo?.replacingOccurrences(of: " Kcal", with: ""),
+           let calorie = Double(calorieString) {
+            return String(Int(calorie))
+        } else {
+            return "Not Found"
+        }
+    }
     
     enum CodingKeys: String, CodingKey {
         case mealToDate = "MLSV_TO_YMD"
         case mealFromDate = "MLSV_FROM_YMD"
         case mealDate = "MLSV_YMD"
-        case regionCode = "ATPT_OFCDC_SC_CODE"
-        case regionName = "ATPT_OFCDC_SC_NM"
         case schoolCode = "SD_SCHUL_CODE"
         case schoolName = "SCHUL_NM"
-        case mealTypeCode = "MMEAL_SC_CODE"
         case mealTypeName = "MMEAL_SC_NM"
         case mealDescription = "DDISH_NM"
-        case mealAmount = "MLSV_FGR"
-        case ingredientInfo = "ORPLC_INFO"
+        case ingredientInfo = "INGR_INFO"
         case calorieInfo = "CAL_INFO"
-        case nutritionInfo = "NTR_INFO"
-        case loadDate = "LOAD_DTM"
     }
 }
+

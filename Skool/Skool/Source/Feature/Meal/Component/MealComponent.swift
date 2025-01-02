@@ -15,7 +15,7 @@ struct MealComponent: View {
                     .cornerRadius(15)
                     .padding(.top, 10)
                 Spacer()
-                Text(meal.calorieInfo)
+                Text("\(meal.cleanCalorieInfo)Kcal")
                     .font(.regular(14))
             }
             .padding(.horizontal, 15)
