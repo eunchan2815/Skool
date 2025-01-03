@@ -10,6 +10,10 @@ import Foundation
 class TimeTableViewModel: ObservableObject {
     @Published var timeTable: [TimeTableEntry] = []
     
+    init() {
+        self.timeTable = []
+    }
+    
     
     func fetchTimeTable(date: String) {
         let parameters: [String: String] = [
@@ -17,7 +21,7 @@ class TimeTableViewModel: ObservableObject {
             "Type": "json",
             "ATPT_OFCDC_SC_CODE": "D10",
             "SD_SCHUL_CODE": "7240454",
-            "ALL_TI_YMD": "20241209",
+            "ALL_TI_YMD": date,
             "GRADE": "1",
             "CLASS_NM": "2"
         ]
