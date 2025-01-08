@@ -43,6 +43,10 @@ struct MealView: View {
             .onAppear {
                 mealVM.getMeal(date: date.cleanDate())
             }
+            .onChange(of: date.currentDate) { newDate in
+                mealVM.getMeal(date: date.cleanDate())
+            }
+            
         }
     }
 }

@@ -18,30 +18,22 @@ class DateViewModel: ObservableObject {
     func fetchCurrentWeek() {
         let today = Date()
         let calendar = Calendar.current
-        
-        let week = calendar.dateInterval(of: .weekdayOrdinal, for: today)
-        
-        guard let firstWeekday = week?.start else { return }
-        
-        (1...7).forEach { day in
-            if let weekday = calendar.date(bySetting: .day, value: day, of: firstWeekday) {
-                currentWeek.append(weekday)
-            }
+
+        guard let weekStart = calendar.date(from: calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: today)) else { return }
+
+        currentWeek = (0..<7).compactMap { offset in
+            calendar.date(byAdding: .day, value: offset, to: weekStart)
         }
     }
     
-    
-    //MARK: 날짜 변환
     func extractDate(date: Date, format: String) -> String {
         let formatter = DateFormatter()
-        
         formatter.dateFormat = format
         return formatter.string(from: date)
     }
     
     func isToday(date: Date) -> Bool {
         let calendar = Calendar.current
-        
         return calendar.isDate(currentDate, inSameDayAs: date)
     }
     

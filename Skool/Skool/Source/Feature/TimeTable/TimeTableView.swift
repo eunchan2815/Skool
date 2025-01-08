@@ -33,6 +33,9 @@ struct TimeTableView: View {
             .onAppear {
                 timeTableVM.fetchTimeTable(date: date.cleanDate())
             }
+            .onChange(of: date.currentDate) { newDate in
+                timeTableVM.fetchTimeTable(date: date.cleanDate())
+            }
             .SkoolView()
         }
     }
