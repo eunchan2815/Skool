@@ -16,6 +16,13 @@ enum SkoolIconography: String {
     case seatTable = "SeatTable"
     case mealNotFound = "NotFound"
     case timeTableNotFound = "NotFound1"
+    case setting = "Setting"
+    
+    //MARK: click
+    case clickTimeTable = "ClickTime"
+    case clickSeat = "ClickSeat"
+    case clickMeal = "ClickMeal"
+    case clickSetting = "ClickSetting"
 }
 
 extension Image {

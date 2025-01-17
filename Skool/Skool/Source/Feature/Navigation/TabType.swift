@@ -4,6 +4,7 @@ enum TabType: CaseIterable {
     case timeTable
     case seat
     case meal
+    case setting
     
     var image: String {
         switch self {
@@ -13,6 +14,8 @@ enum TabType: CaseIterable {
             "TimeTable"
         case .seat:
             "Seat"
+        case .setting:
+            "Setting"
         }
     }
     
@@ -24,6 +27,8 @@ enum TabType: CaseIterable {
             "ClickTime"
         case .seat:
             "ClickSeat"
+        case .setting:
+            "ClickSetting"
         }
     }
     
@@ -35,6 +40,8 @@ enum TabType: CaseIterable {
             "시간표"
         case .seat:
             "자리뽑기"
+        case .setting:
+            "설정"
         }
     }
 }
