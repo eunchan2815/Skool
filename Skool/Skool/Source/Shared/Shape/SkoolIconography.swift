@@ -17,6 +17,9 @@ enum SkoolIconography: String {
     case mealNotFound = "NotFound"
     case timeTableNotFound = "NotFound1"
     case setting = "Setting"
+    case headset = "Headset"
+    case schoolhat = "SchoolHat"
+    case key = "Key"
     
     //MARK: click
     case clickTimeTable = "ClickTime"
