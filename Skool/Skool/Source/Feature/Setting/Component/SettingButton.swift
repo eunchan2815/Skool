@@ -56,7 +56,7 @@ struct SettingButton: View {
                         .font(.krMedium(15))
                     Spacer()
                 }
-                .padding(.leading, 40)
+                .padding(.leading, 35)
             }
         }
     }

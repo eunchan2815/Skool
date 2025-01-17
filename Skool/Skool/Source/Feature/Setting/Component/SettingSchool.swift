@@ -31,7 +31,7 @@ struct SettingSchool: View {
             }
             .padding(.top)
             .padding(.bottom, 18)
-            .padding(.leading, 40)
+            .padding(.leading, 34)
         }
     }
 }
