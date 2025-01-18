@@ -32,6 +32,7 @@ struct SkoolTabItem: View {
                             width: item == TabType.seat ? 50 : 24,
                             height: item == TabType.seat ? 25 : 24
                         )
+                        .scaledToFit()
                 }
                 Text(item.text)
                     .foregroundStyle(isSelected ? .white : .black)
@@ -39,7 +40,7 @@ struct SkoolTabItem: View {
                     .padding(.vertical, 2)
             }
             .onTapGesture {
-                withAnimation(.easeIn(duration: 0.2)) {
+                withAnimation(.easeIn(duration: 0.1)) {
                     action()
                 }
             }
