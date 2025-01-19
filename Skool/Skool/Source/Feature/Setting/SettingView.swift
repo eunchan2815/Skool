@@ -29,6 +29,20 @@ struct SettingView: View {
                 SettingButton(selectedButton: .call, link: "https://succinct-breakfast-604.notion.site/177cba4137ad80c78dd7e91a19d7f19e")
                 SettingButton(selectedButton: .notion, link: "https://www.youtube.com/watch?v=OrrZ-TiTbPg&list=RDIde2nawCz4Y&index=21")
             }
+            HStack {
+                Spacer()
+                Button {
+                    print("로그아웃되었습니다")
+                } label: {
+                    Text("로그아웃")
+                        .underline()
+                        .font(.medium(15))
+                        .foregroundStyle(Color.red)
+                }
+            }
+            .padding(.vertical, 4)
+            .padding(.trailing, 30)
+            
             Spacer()
         }
     }
