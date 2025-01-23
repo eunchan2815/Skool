@@ -73,20 +73,22 @@ struct SkoolTabBar<Content: View>: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .ignoresSafeArea(edges: .top)
             
-            Rectangle()
-                .cornerRadius(20, corners: .allCorners)
-                .frame(maxWidth: .infinity, maxHeight: 90)
-                .foregroundStyle(Color.white)
-                .overlay {
-                    HStack(spacing: 40) {
-                        ForEach(TabType.allCases, id: \.self) { icon in
-                            SkoolTabItem(item: icon, isSelected: icon == selectedTab) {
-                                selectedTab = icon
-                            }
+            VStack {
+                Rectangle()
+                    .frame(maxWidth: .infinity, maxHeight: 1)
+                    .foregroundStyle(Color.init(uiColor: .systemGray6))
+                HStack(spacing: 40) {
+                    ForEach(TabType.allCases, id: \.self) { icon in
+                        SkoolTabItem(item: icon, isSelected: icon == selectedTab) {
+                            selectedTab = icon
                         }
                     }
                 }
-                .shadow(radius: 0.3)
+            }
+            .frame(maxWidth: .infinity, maxHeight: 90)
+            .padding(.bottom, 24)
+            .padding(.top, 0)
+            .foregroundStyle(Color.white)
         }
         .ignoresSafeArea(edges: .all)
     }

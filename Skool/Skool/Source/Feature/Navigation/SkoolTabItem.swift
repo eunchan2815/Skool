@@ -40,7 +40,7 @@ struct SkoolTabItem: View {
                     .padding(.vertical, 2)
             }
             .onTapGesture {
-                withAnimation(.easeIn(duration: 0.1)) {
+                withAnimation(.easeInOut(duration: 0.1)) {
                     action()
                 }
             }
