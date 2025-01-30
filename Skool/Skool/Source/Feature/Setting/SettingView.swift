@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SettingView: View {
     @Environment(\.openURL) private var openURL
+    @StateObject private var authVM = LoginViewModel()
     var body: some View {
         VStack {
             HStack {
@@ -18,13 +19,13 @@ struct SettingView: View {
             }
             .padding()
             HStack {
-                Text("안녕하세요 김은찬님")
+                Text("안녕하세요 \(authVM.userName)님")
                     .font(.krMedium(20))
                 Spacer()
             }
             .padding()
             VStack {
-                SettingSchool()
+                SettingSchool(grade: authVM.grade, classNum: authVM.classNum)
                 
                 SettingButton(selectedButton: .call, link: "https://succinct-breakfast-604.notion.site/177cba4137ad80c78dd7e91a19d7f19e")
                 SettingButton(selectedButton: .notion, link: "https://www.youtube.com/watch?v=OrrZ-TiTbPg&list=RDIde2nawCz4Y&index=21")
@@ -32,7 +33,7 @@ struct SettingView: View {
             HStack {
                 Spacer()
                 Button {
-                    print("로그아웃되었습니다")
+                    authVM.logout()
                 } label: {
                     Text("로그아웃")
                         .underline()

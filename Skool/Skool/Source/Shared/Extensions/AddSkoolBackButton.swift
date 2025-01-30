@@ -21,7 +21,7 @@ struct AddSkoolBackButton: ViewModifier {
                     } label: {
                         HStack {
                             Image(systemName: "chevron.left")
-                                .font(.title3)
+                                .font(.regular(20))
                                 .foregroundStyle(.black)
                         }
                     }

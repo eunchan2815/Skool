@@ -9,6 +9,8 @@ import Foundation
 
 class TimeTableViewModel: ObservableObject {
     @Published var timeTable: [TimeTableEntry] = []
+    @Published var grade = ""
+    @Published var classNum = ""
     
     init() {
         self.timeTable = []
@@ -22,8 +24,8 @@ class TimeTableViewModel: ObservableObject {
             "ATPT_OFCDC_SC_CODE": "D10",
             "SD_SCHUL_CODE": "7240454",
             "ALL_TI_YMD": date,
-            "GRADE": "1",
-            "CLASS_NM": "2"
+            "GRADE": grade,
+            "CLASS_NM": classNum
         ]
         SkoolNetworkRunner.shared.TimeTableRequest(url: "/hisTimetable", method: .get, parameters: parameters, response: TimeTableModel.self) { result in
             switch result {

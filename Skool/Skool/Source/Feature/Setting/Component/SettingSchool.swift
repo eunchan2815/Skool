@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SettingSchool: View {
+    let grade: String
+    let classNum: String
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 10)
@@ -21,7 +23,7 @@ struct SettingSchool: View {
                     Spacer()
                 }
                 
-                Text("1학년 2반")
+                Text("\(grade)학년 \(classNum)반")
                     .foregroundStyle(.white)
                     .font(.krMedium(15))
                 
@@ -34,8 +36,4 @@ struct SettingSchool: View {
             .padding(.leading, 34)
         }
     }
-}
-
-#Preview {
-    SettingSchool()
 }

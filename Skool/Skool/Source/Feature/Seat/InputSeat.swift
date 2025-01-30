@@ -18,7 +18,7 @@ struct InputSeat: View {
                 
                 TextField("인원 수를 입력하세요", text: $number)
                     .keyboardType(.numberPad)
-                    .onChange(of: number) { newValue in
+                    .onChange(of: number) { newValue, oldValue in
                         validateInput()
                     }
                     .tint(.main)

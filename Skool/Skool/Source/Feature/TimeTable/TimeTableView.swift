@@ -10,6 +10,7 @@ import SwiftUI
 struct TimeTableView: View {
     @StateObject private var timeTableVM = TimeTableViewModel()
     @StateObject var date = DateViewModel()
+    @StateObject private var userVM = LoginViewModel()
     var body: some View {
         VStack {
             HeaderView(date: date)
@@ -31,9 +32,11 @@ struct TimeTableView: View {
                 }
             }
             .onAppear {
+                timeTableVM.grade = userVM.grade
+                timeTableVM.classNum = userVM.classNum
                 timeTableVM.fetchTimeTable(date: date.cleanDate())
             }
-            .onChange(of: date.currentDate) { newDate in
+            .onChange(of: date.currentDate) { newDate, oldValue in
                 timeTableVM.fetchTimeTable(date: date.cleanDate())
             }
             .SkoolView()
