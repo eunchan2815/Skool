@@ -2,7 +2,7 @@ import Foundation
 
 // 시간표 모델
 struct TimeTableModel: Codable {
-    let hisTimetable: [HisTimetable]
+    let hisTimetable: [HisTimetable]?
 }
 
 // hisTimetable 항목
