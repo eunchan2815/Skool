@@ -26,18 +26,20 @@ struct MealView: View {
                 }
             }
             ScrollView(.vertical, showsIndicators: false) {
-                VStack(spacing: 16) {
-                    if let meals = mealVM.breakfastMeals.first {
-                        MealComponent(mealType: "조식", meal: meals)
+                if !mealVM.notFound {
+                    VStack(spacing: 16) {
+                        if let meals = mealVM.breakfastMeals.first {
+                            MealComponent(mealType: "조식", meal: meals)
+                        }
+                        if let meals = mealVM.lunchMeals.first {
+                            MealComponent(mealType: "중식", meal: meals)
+                        }
+                        if let meals = mealVM.dinnerMeals.first {
+                            MealComponent(mealType: "석식", meal: meals)
+                        }
                     }
-                    if let meals = mealVM.lunchMeals.first {
-                        MealComponent(mealType: "중식", meal: meals)
-                    }
-                    if let meals = mealVM.dinnerMeals.first {
-                        MealComponent(mealType: "석식", meal: meals)
-                    }
+                    .padding(.vertical)
                 }
-                .padding(.vertical)
             }
             .SkoolView()
             .onAppear {

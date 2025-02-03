@@ -14,7 +14,7 @@ struct TimeTableView: View {
     var body: some View {
         VStack {
             HeaderView(date: date)
-            if timeTableVM.timeTable.isEmpty {
+            if timeTableVM.notFount {
                 VStack {
                     Spacer()
                     Image(icon: .timeTableNotFound)
@@ -25,9 +25,11 @@ struct TimeTableView: View {
                 }
             }
             ScrollView(.vertical, showsIndicators: false) {
-                VStack {
-                    ForEach(timeTableVM.timeTable, id: \.self) { timeTable in
-                        TimeTableComponent(timetable: timeTable)
+                if !timeTableVM.notFount {
+                    VStack {
+                        ForEach(timeTableVM.timeTable, id: \.self) { timeTable in
+                            TimeTableComponent(timetable: timeTable)
+                        }
                     }
                 }
             }

@@ -24,6 +24,7 @@ class MealViewModel: ObservableObject {
                         if let mealInfo = data.mealServiceDietInfo?[safe: 1]?.row {
                             self.meals = mealInfo
                             self.filterMeals()
+                            self.notFound = false
                         }
                     }
                 } else {

@@ -11,6 +11,7 @@ class TimeTableViewModel: ObservableObject {
     @Published var timeTable: [TimeTableEntry] = []
     @Published var grade = ""
     @Published var classNum = ""
+    @Published var notFount = false
     
     init() {
         self.timeTable = []
@@ -30,7 +31,12 @@ class TimeTableViewModel: ObservableObject {
         SkoolNetworkRunner.shared.TimeTableRequest(url: "/hisTimetable", method: .get, parameters: parameters, response: TimeTableModel.self) { result in
             switch result {
             case .success(let data):
-                self.timeTable = data.hisTimetable.compactMap { $0.row }.flatMap { $0 }
+                if let timetables = data.hisTimetable, !timetables.isEmpty {
+                    self.timeTable = timetables.compactMap { $0.row }.flatMap { $0 }
+                    self.notFount = false
+                } else {
+                    self.notFount = true
+                }
             case .failure(let error):
                 print(error.localizedDescription)
             }
